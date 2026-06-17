@@ -12,7 +12,7 @@
  <link rel="stylesheet" href="Style.css">
     </head>
     <body>
-        <nav class="navbar">
+        <nav id="navbar">
             <div class="nav-inner">
                 <a href="#hero" class="nav-logo">&lt;YN /&gt;</a> <!-- Corrected HTML entity for < -->
                 <ul class="nav-links">
@@ -22,10 +22,10 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="humburger" id="humberger" aria-label="Toggle navigation">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </nav>
@@ -48,7 +48,7 @@
                 <h1 class="hero-name">Marchall Kevin Tambunan</h1>
                 <div class="hero-roles">
                     <span class="prompt">~/Portofolio $</span>
-                    <span class="typed-tex" id="typedText"></span>
+                    <span class="typed-text" id="typedText"></span>
                     <span class="cursor">_</span>
                 </div>
                 <p class="hero-desc">
@@ -57,7 +57,7 @@
                 </p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn-primary">Lihat Proyek</a>
-                    <a href="#contact" class="btn-secondary">Hubungi Saya</a>
+                    <a href="#contact" class="btn-ghost">Hubungi Saya</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat"><span class="stat-num">2</span><span class="stat-label">Proyek selesai</span>
@@ -107,19 +107,19 @@
                                     <span class="terminal-title">Profil.json</span>
                                 </div>
                                 <pre class="terminal-code"><span class="key">{</span>
-                                <span class="jkey">"Name</span>: <span class="jval">"Marchall Kevin Tambunan"</span>,
+                                <span class="jkey">"name":</span> <span class="jval">"Marchall Kevin Tambunan"</span>,
                                 <span class="jkey">"role":</span> <span class="jval">"Full Stack Developer"</span>,
-                                <span class="jkey">"Location":</span> <span class="jval">"Indonesia"</span>,
+                                <span class="jkey">"location":</span> <span class="jval">"Indonesia"</span>,
                                 <span class="jkey">"specialties"</span>: [
                                 <span class="jval">"Frontend"</span>,
                                 <span class="jval">"Backend"</span>,
                                 <span class="jval">"Cybersecurity"</span>,
-                                <span class="jval">"Linux Ops</span>
-                                <span class="jval">AI Integration</span>
+                                <span class="jval">"Linux Ops"</span>,
+                                <span class="jval">"AI Integration"</span>
                                 ],
-                                <span class="jkey">"Status"</span>: <span class="jval">"Available"</span>,
-                                <span class="jkey">"coffe"</span>: <span class="jval">"yes"</span>,
-                                <span class="key">}</span> </pre>
+                                <span class="jkey">"status":</span> <span class="jval">"Available"</span>,
+                                <span class="jkey">"coffee":</span> <span class="jval">"yes"</span>
+                                <span class="key">}</span></pre>
                             </div>
                         </div>
                     </div>
@@ -132,14 +132,6 @@
                     <h2>Tumpukan Teknologi & <span class="accent">Keahlian</span></h2>
                     <div class="skills-grid">
                     
-                    <div class="skill-card">
-                        <div class="skill-icon">💻</div>
-                        <h3>frontend development</h3>
-                        <div class="skill-tags"> <!-- This skill card is a duplicate of the next one -->
-                            <span>React</span><span>Next.js</span><span>Vue.js</span>
-                            <span>TypeScript</span><span>Tailwind CSS</span><span>HTML</span><span>CSS</span>
-                        </div>
-                    </div>
                     <div class="skill-card">
                         <div class="skill-icon">🖥️</div>
           <h3>Frontend Development</h3>
