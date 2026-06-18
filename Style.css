@@ -182,13 +182,12 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr; /* Default to single column */
   gap: 4rem;
   align-items: center;
   width: 100%;
+  text-align: center; /* Memusatkan semua teks dan elemen inline di dalam hero-content */
 }
-
-.hero-text { text-align: left; }
 
 .terminal-badge {
   display: inline-flex;
@@ -209,6 +208,23 @@ body {
 @keyframes pulse-green {
   0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.2); }
   50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+}
+
+/* Gaya untuk foto profil hero */
+.hero-photo {
+  margin-bottom: 20px; /* Menambahkan kembali margin yang sebelumnya inline */
+  /* Memusatkan foto itu sendiri di dalam sel grid-nya */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-photo img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00d4ff; /* Warna spesifik dari gaya inline asli */
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.3); /* Bayangan spesifik dari gaya inline asli */
 }
 
 .hero-name {
@@ -238,6 +254,30 @@ body {
 .cursor {
   color: #7DD3FC;
   animation: blink 1s step-end infinite;
+}
+
+/* Hero Section Layout for Larger Screens */
+@media (min-width: 901px) {
+  .hero-content {
+    grid-template-columns: 1fr auto; /* Text on left, photo on right */
+    text-align: left; /* Align text to left */
+    gap: 6rem; /* Adjust gap for larger screens */
+  }
+  .hero-photo {
+    order: 2; /* Move photo to the second column */
+    margin-bottom: 0; /* Remove bottom margin */
+    margin-left: auto; /* Keep auto margins for centering within its grid cell */
+    margin-right: 0; /* Align to right of its grid cell */
+  }
+  .terminal-badge {
+    margin-left: 0; /* Align badge to left */
+  }
+  .hero-desc {
+    margin-left: 0; /* Align description to left */
+    margin-right: auto; /* Keep auto right margin for max-width centering */
+  }
+  .hero-actions { justify-content: flex-start; } /* Align buttons to left */
+  .hero-stats { justify-content: flex-start; } /* Align stats to left */
 }
 
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -335,7 +375,7 @@ body {
 /* ===== HERO PHOTO ===== */
 .hero-photo-wrap {
   position: relative;
-  flex-shrink: 0;
+  flex-shrink: 0; /* CATATAN: Blok CSS ini (hero-photo-wrap, hero-photo-ring, dll.) saat ini tidak digunakan oleh struktur index.html yang disediakan. */
 }
 
 .hero-photo-ring {
@@ -476,6 +516,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* Explicitly set default to column */
   gap: 1.25rem;
   flex-shrink: 0;
 }
@@ -520,12 +561,16 @@ h2 {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   padding: 0.3rem 0.8rem;
+  /* Ensure badge is centered when about-photo-wrap is centered */
   border-radius: 100px;
   letter-spacing: 0.06em;
   white-space: nowrap;
 }
 
-.about-right {}
+.about-right {
+  display: flex;
+  flex-direction: column;
+}
 
 .about-right p {
   color: var(--muted);
@@ -624,6 +669,12 @@ h2 {
   transform: scaleX(0);
   transition: transform 0.3s;
   transform-origin: left;
+}
+
+.skill-icon img {
+  width: 2rem; /* Menyesuaikan ukuran gambar dengan font-size ikon sebelumnya */
+  height: 2rem;
+  object-fit: contain; /* Memastikan gambar diskalakan dengan benar */
 }
 
 .skill-card:hover {
@@ -963,14 +1014,13 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .hero-content { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
-  .hero-text { order: 2; }
+  .hero-content { gap: 2.5rem; } /* grid-template-columns: 1fr dan text-align: center sekarang adalah default */
   .hero-photo-wrap { order: 1; display: flex; justify-content: center; }
-  .hero-desc { margin-left: auto; margin-right: auto; }
+  .hero-desc { margin-left: auto; margin-right: auto; max-width: 520px; } /* Ensure max-width is respected */
   .hero-actions { justify-content: center; }
   .hero-stats { justify-content: center; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .about-photo-wrap { flex-direction: row; align-items: center; }
+  /* Removed: .about-photo-wrap { flex-direction: row; align-items: center; } */
 }
 
 @media (max-width: 768px) {
